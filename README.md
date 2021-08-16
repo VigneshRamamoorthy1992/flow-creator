@@ -1,9 +1,12 @@
 # Flow Creator
-## About app
 
-DEMO [flow-creator](https://flow-creator-amex.herokuapp.com/)
+Flow Creator is a React application to generate a sequential work flow based on pre-defined business entities. A business user with no technical background will be able to use the given graphical user interface to create/update the workflows with ease. 
 
-## Gettig started
+## Demo
+
+[flow-creator](https://flow-creator-amex.herokuapp.com/)
+
+## Development
 
 ```
 git clone https://github.com/VigneshRamamoorthy1992/flow-json.git
@@ -20,7 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 running test cases <br/>
 `npm test`
  
-# Approach
+# What has been done?
 
 ## Problem Statement
 
@@ -31,34 +34,20 @@ Applcation should be able to download a formatted json based on user definition 
 - All entities consist of string fields as additional information
 - Flow creation should be done through drag and drop
 
-## Problem Approach
+## Approach
 
-- Create a single page application which consist of a canvas area and asset library from which user can drag and drop business entities
-- User should be add / remove business entites to canvas
-- User should be able to edit the attribute corresponds to the business entity
-- User should have the provision to save / cancel user entered values
-- User should be able to reset the canvas
-- User should be able to add and remove entities at any node
+The idea is to avoid any external third-party libraries and use the native features as much as possible. In this Project, HTML's [Drap and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) is used extensively to provide the intended drag and drop functionality. The application is developed with three main components, Home, FlowCanvas & Flow Assets
 
-## UX Approach
+- `FlowAsset` A React component to show list of pre-defined business entitites. They would be draggable and can be dropped into the `FlowCanvas` 
+- `FlowCanvas` is the main area where the workflow is presented in sequential manner
+- `Home` is the wrapper component that orchestrates both `FlowAsset` & `FlowCanvas`
 
-- As per problem statement, User creates a sequential flow of business entities and no branching involved use html drag and drop (no library required)
-- Initial state user should be able to drop entity to any part of the canvas
-- After initial addition user should have an option to add before (drop area) / after (drop area) / between entity (arrow - drop area)
-- Clicking should select / deselect 
-- On entity selection, User should be shown with corresponding attributes to selected business entity
-- On Save / Cancel selection should be removed
-- Reset button to reset the canvas
-- Download button to download created flow json (minimum of 1 should be added to canvas)
+The application is very much scallable and already have skeletons for routing and state management. We can extend them with ease whenever required. 
 
-## Scalability
-
-- Applcation should have a state management
+## Limitations
+- The application is designed only to be used in regular screens. Touch screen access is not supported (YET!). 
 - Business entities are configurable through data.tsx will be configured through an api (TBD)
-- Update data.tsx to add / remove business entities and its associated fields
-- Redux-thunk set up of api requests through state management
-- Axios has been added for http requests
-- Routing has been added of exting the app to more than one page
+
 
 # Architecture
 
